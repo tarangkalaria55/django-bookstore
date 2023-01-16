@@ -33,7 +33,7 @@ class Book(models.Model):
         return reverse("book_detail", kwargs={"pk": str(self.pk)})
 
 
-class Review(models.Model):  # new
+class Review(models.Model):
     book = models.ForeignKey(
         Book,
         on_delete=models.CASCADE,

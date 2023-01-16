@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-i=ex!m4n(@)4dw&bb53tfoo*9ba_st(lvundq%8n664i7dk3lw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "allauth",
     "allauth.account",
+    "debug_toolbar",
     # Local
     "users",
     "pages",
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -173,3 +175,9 @@ ACCOUNT_UNIQUE_EMAIL = True
 # Stripe
 STRIPE_TEST_PUBLISHABLE_KEY = os.environ.get("STRIPE_TEST_PUBLISHABLE_KEY")
 STRIPE_TEST_SECRET_KEY = os.environ.get("STRIPE_TEST_SECRET_KEY")
+
+# django-debug-toolbar
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
